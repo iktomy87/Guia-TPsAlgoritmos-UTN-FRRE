@@ -1,0 +1,93 @@
+Acción JUEGO Es
+
+Ambiente
+numsecreto,num,contador:Entero
+interno,externo:Logico
+respuesta:Caracter
+	
+Algoritmo
+	
+	Escribir("Este algoritmo genera un número aleatorio entre 1 y 100. El usuario debe intentar adivinar el numero")
+	
+	Repetir
+		numsecreto:=Random(1, 100)
+		contador:= 0
+		Escribir("Ingrese un numero")
+		Leer(num)
+				
+		Repetir
+			
+		Si num<numsecreto Entonces
+			Escribir("El numero ingresado es menor que el numero secreto")
+			Escribir ("Desea seguir jugando? s/n")
+			Leer(respuesta)
+		Si respuesta= "s" Entonces
+				contador:=contador+1
+				Escribir("Ingrese otro numero")
+				Leer(num)
+			FinSi
+			Si respuesta= "n" Entonces
+				interno:=Verdadero
+				externo:=Verdadero
+            FinSi
+		FinSi
+		
+		Si num>numsecreto Entonces
+			Escribir("El numero ingresado es mayor que el numero secreto")
+			Escribir ("Desea seguir jugando? s/n")
+			Leer(respuesta)
+			Si respuesta= "s" Entonces
+				contador:=contador+1
+				Escribir("Ingrese otro numero")
+				Leer(num)
+			FinSi
+			Si respuesta= "n" Entonces
+				interno:=Verdadero
+				externo:=Verdadero
+            FinSi
+		FinSi
+
+		Si num=numsecreto Entonces
+			Escribir("Felicidades has adivinado el número secreto! Lo has hecho en el intento "), contador
+			Escribir("Desea jugar de nuevo?")
+			Leer(respuesta)
+			Si respuesta= "s" Entonces
+				interno:=Verdadero
+			FinSi
+			Si respuesta= "n" Entonces
+					interno:=Verdadero
+				  externo:=Verdadero
+            FinSi
+		FinSi
+		
+		Si contador=10 Entonces
+			Escribir("Has utilizado tus 10 intentos")
+			Escribir("Desea jugar de nuevo? (s/n)")
+			Leer(respuesta)
+			Si respuesta= "s" Entonces
+				interno:=Verdaderoo
+				Si respuesta= "n" Entonces
+					interno=Verdadero
+					externo=Verdadero
+				FinSi
+			SiNo
+				interno:=Verdadero
+				externo:=Verdadero
+			FinSi
+		FinSi
+		
+		Si contador=9 Entonces
+			Escribir("¡Cuidado! Este es tu último intento")
+		FinSi
+		Si contador>5 Entonces
+			Escribir("Tienes varios intentos, ¡utilízalos sabiamente!")
+		FinSi
+		Si contador>1 y contador<5
+			Escribir("¡Vamos! Aún tienes oportunidades para ganar")
+		FinSi
+
+		Hasta que interno=Verdadero
+		
+	Hasta que externo=Verdadero
+	
+FinAlgoritmo
